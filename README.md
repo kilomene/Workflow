@@ -1,112 +1,98 @@
-# Character Consistency Workflow (Agent Skill)
+# AI Video Production Skills
 
-An installable **agent skill** that keeps a character's face, voice, and personality
-consistent across every scene of a multi-clip AI video project — regardless of which
-AI video generation platform you're using (Sora, Veo/Flow, Kling, Runway, Seedance,
-Pika, etc.).
+Installable **agent skills** for consistent, premium-quality AI-generated video —
+built for use with Claude or any agent runtime that supports the same skill format
+(SKILL.md + references).
 
-This is **not** software you run. It's a `SKILL.md` instruction package that an
-agentic AI system (Claude, or any agent that supports the same skill format) reads and
-follows step-by-step while it helps you generate your video, scene by scene.
+These are instruction packages, not software. They contain no code and call no APIs
+of their own — an agent reads them and follows the workflow while helping you
+generate video, scene by scene, on whichever platform you're using (Sora, Veo/Flow,
+Kling, Runway, Seedance, Pika, etc.).
 
-## The problem this solves
+## Skills in this repo
 
-AI-generated video clips are usually produced one scene at a time. Without a
-disciplined process, the "same" character's face, voice, and personality drift
-between clips — different face shape, different voice, inconsistent aging or
-wardrobe — because each generation call has no memory of exactly how the character
-was described last time.
+### [`character-consistency`](skills/character-consistency/)
+Keeps a character's face, voice, and personality consistent across every scene of a
+multi-clip project. Builds a "character bible," compiles it into a reusable prompt
+block, and runs a self-review checklist after every generated clip.
 
-## What this skill actually does
+### [`cinematic-effect-engine`](skills/cinematic-effect-engine/)
+Applies a premium, photorealistic, cinema/streaming-quality visual and audio
+treatment to every shot — cinematography, camera movement, lighting, and production
+design defaults, plus a quality self-check pass before delivering a scene.
 
-- Forces creation of a **character bible**: one file that locks down every visual,
-  vocal, and personality trait of each character before any generation starts
-- Compiles that bible into a **reusable Identity Block** — a fixed paragraph pasted
-  verbatim into every scene prompt, so the character is never re-described from
-  scratch or paraphrased differently each time
-- Runs a **self-review checklist** after every generated clip, comparing it against
-  the bible and flagging exactly what to fix if something drifted
-- Tracks intentional changes (aging, wardrobe, injuries) in a **continuity log** so a
-  20+ scene project doesn't rely on memory
-- Points to each platform's **native reference-image / character-lock features**
-  (Sora's reference system, Veo's Ingredients-to-Video, Kling's Elements 3.0,
-  Seedance's multi-reference input, etc.) as the primary consistency mechanism where
-  available, with this skill's process as the backup layer — especially for voice and
-  personality, which reference images can't cover
+**These two skills are designed to be used together.** `cinematic-effect-engine`
+explicitly defers all character identity, continuity, wardrobe, and personality
+decisions to `character-consistency` — it only governs how a shot is filmed and
+rendered, never who's in it or what they look like.
 
-## What this skill does *not* do
+## What these skills actually do (and don't)
 
-Be clear-eyed about this: no instruction skill can force a closed AI video platform to
-internally guarantee facial or vocal identity across separate generation calls. This
-skill can't call face-embedding or voice-embedding comparison tools — it works purely
-through disciplined reference-passing and manual/agent-driven self-review, not
-programmatic verification. If you need a hard technical guarantee, you'd want a
-different, heavier pipeline (e.g. LoRA training per character, embedding-based face
-similarity scoring, voice cloning with a fixed model) — this skill is the
-lightweight, install-anywhere version of that discipline.
+Be clear-eyed about the limits here: no instruction skill can force a closed AI video
+platform to internally guarantee facial/vocal identity or specific rendering
+techniques (ray tracing, true 8K, etc.) across separate generation calls. These
+skills work through:
+- Disciplined, reusable prompt construction (so a character or visual style isn't
+  re-described differently every time, which is the #1 cause of drift/inconsistency)
+- Pointing to each platform's native reference-image/character-lock features as the
+  primary mechanism where available
+- A self-review checklist run after each generated shot, catching and correcting
+  drift rather than preventing it at the model level
+
+If you need a hard technical guarantee rather than a disciplined workflow, you'd want
+a heavier pipeline — e.g. LoRA training per character, face-embedding similarity
+scoring, or voice cloning with a fixed model. These skills are the lightweight,
+install-anywhere version of that discipline, not a replacement for it.
 
 ## Installation
 
 ### For Claude (claude.ai, Claude Code, Cowork)
-1. Download `character-consistency.skill` from the [Releases](../../releases) page
-   or this repo
-2. Upload/attach it wherever your Claude client supports installing a `.skill` file
-   (the file card will show a **Save skill** button)
+Download the packaged `.skill` file for whichever skill(s) you want from the
+[Releases](../../releases) page, and upload/attach it wherever your Claude client
+supports installing a skill.
 
-### For other agents that support the same skill format
-1. Clone or download this repo
-2. Point your agent's skill-loading mechanism at the `character-consistency/` folder
-   (containing `SKILL.md` and `references/`)
-3. Confirm your agent's runtime supports the same three-file structure — see
-   [Repo structure](#repo-structure) below
+### For other agents supporting the same skill format
+Clone this repo and point your agent's skill-loading mechanism at the relevant
+folder under `skills/` (each contains its own `SKILL.md` and `references/`).
 
 ### Manual / no skill-loader available
-You can also just paste the contents of `SKILL.md` directly into your conversation
-with any capable AI agent and say "follow this workflow for my video project" — the
-skill is plain-language instructions, not code, so it works even without formal
-skill-loading support.
-
-## Usage
-
-Once installed, just start your video project normally and mention you want
-consistent characters across scenes — e.g.:
-
-> "I'm making a 15-minute short film with Kling. I need the main character's face and
-> voice to stay exactly consistent across all 20 scenes."
-
-The agent will:
-1. Ask you for character details (or extract them from what you've already described)
-   and build `character-bible.md`
-2. Compile the reusable Identity Block
-3. Check current reference-image support for your chosen platform
-4. Walk through scene-by-scene generation, reusing the Identity Block every time
-5. Self-review each clip against the bible before you move to the next scene
-6. Keep a running `continuity-log.md` for the whole project
+Paste the contents of a skill's `SKILL.md` directly into your conversation with any
+capable AI agent and say "follow this workflow." These are plain-language
+instructions, so they work even without formal skill-loading support.
 
 ## Repo structure
 
 ```
-character-consistency/
-├── SKILL.md                              # Main workflow instructions (read first)
-└── references/
-    ├── character-bible-template.md       # Fillable template for character traits
-    ├── continuity-log-template.md        # Per-scene tracking table
-    └── platform-notes.md                 # Current platform reference-image support
+ai-video-toolkit/
+├── README.md                          # this file
+├── LICENSE
+├── CONTRIBUTING.md
+├── .gitignore
+└── skills/
+    ├── character-consistency/
+    │   ├── SKILL.md
+    │   ├── references/
+    │   │   ├── character-bible-template.md
+    │   │   ├── continuity-log-template.md
+    │   │   └── platform-notes.md
+    │   └── examples/
+    │       └── example-character-bible.md
+    └── cinematic-effect-engine/
+        ├── SKILL.md
+        └── references/
+            └── shot-prompt-checklist.md
 ```
 
-## Keeping platform-notes.md current
+## Keeping platform notes current
 
-AI video platforms change their reference-image and character-consistency features
-often. `references/platform-notes.md` reflects what was true as of when this skill
-was last updated (see file header for date). Pull requests updating it — or opening
-an issue when a platform ships a relevant new feature — are welcome.
+AI video platforms ship new reference-image, character-consistency, and rendering
+features often. `skills/character-consistency/references/platform-notes.md` reflects
+what was true as of when it was last updated (see the file header for date). PRs
+and issues updating it are welcome.
 
 ## Contributing
 
-Issues and PRs welcome, especially:
-- Updates to `platform-notes.md` as platforms ship new features
-- Additional failure modes / troubleshooting notes based on real usage
-- Improvements to the self-review checklist
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

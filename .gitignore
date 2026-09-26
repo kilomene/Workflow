@@ -15,8 +15,7 @@ __pycache__/
 dist/
 *.skill
 
-# Example/generated project files users create when USING the skill
-# (these live in their own project folders, not this repo, but excluded
-# just in case someone runs the workflow inside a clone of this repo)
+# Project files users create when USING a skill
+# (these belong in their own project folders, not this repo)
 character-bible.md
 continuity-log.md
