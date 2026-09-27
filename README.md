@@ -9,6 +9,15 @@ of their own — an agent reads them and follows the workflow while helping you
 generate video, scene by scene, on whichever platform you're using (Sora, Veo/Flow,
 Kling, Runway, Seedance, Pika, etc.).
 
+## The Golden Law
+
+[`REALISM-ENGINE.md`](REALISM-ENGINE.md) states the one standard all three
+skills below are serving: **the viewer must believe a real camera, real actors,
+and a real film crew created the scene — not artificial intelligence.** Each
+skill's SKILL.md links back to it, so it's visible no matter which skill an
+agent loads first. It also holds the Final Validation checklist that spans all
+three skills' domains in one pre-delivery pass.
+
 ## Skills in this repo
 
 ### [`character-consistency`](skills/character-consistency/)
@@ -18,13 +27,26 @@ block, and runs a self-review checklist after every generated clip.
 
 ### [`cinematic-effect-engine`](skills/cinematic-effect-engine/)
 Applies a premium, photorealistic, cinema/streaming-quality visual and audio
-treatment to every shot — cinematography, camera movement, lighting, and production
-design defaults, plus a quality self-check pass before delivering a scene.
+treatment to every shot — shot hierarchy, camera movement/angles, lighting,
+composition, special moves, weather continuity, sound effects, and music — plus a
+quality self-check pass before delivering a scene.
 
-**These two skills are designed to be used together.** `cinematic-effect-engine`
-explicitly defers all character identity, continuity, wardrobe, and personality
-decisions to `character-consistency` — it only governs how a shot is filmed and
-rendered, never who's in it or what they look like.
+### [`physics-continuity-engine`](skills/physics-continuity-engine/)
+Enforces real-world physical logic and object continuity: vehicle and location
+identity locks, human physics (doors, stairs, gravity, mounting vehicles),
+travel/screen direction continuity, and correct physical object interaction —
+plus a pre-delivery realism checklist.
+
+**These three skills are designed to be used together**, each owning a distinct
+layer:
+- `character-consistency` — who's in the shot (face, voice, personality, emotion)
+- `cinematic-effect-engine` — how the shot is filmed, lit, and scored
+- `physics-continuity-engine` — how the physical world and objects in the shot
+  behave and stay consistent
+
+None of them overrides another's domain — `cinematic-effect-engine` and
+`physics-continuity-engine` both explicitly defer character identity/continuity to
+`character-consistency`.
 
 ## What these skills actually do (and don't)
 
@@ -65,6 +87,7 @@ instructions, so they work even without formal skill-loading support.
 ```
 ai-video-toolkit/
 ├── README.md                          # this file
+├── REALISM-ENGINE.md                  # cross-skill Golden Law + final validation
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── .gitignore
@@ -73,14 +96,27 @@ ai-video-toolkit/
     │   ├── SKILL.md
     │   ├── references/
     │   │   ├── character-bible-template.md
+    │   │   ├── voice-bible.md
+    │   │   ├── personality-bible.md
+    │   │   ├── emotion-engine.md
     │   │   ├── continuity-log-template.md
     │   │   └── platform-notes.md
     │   └── examples/
     │       └── example-character-bible.md
-    └── cinematic-effect-engine/
+    ├── cinematic-effect-engine/
+    │   ├── SKILL.md
+    │   └── references/
+    │       ├── shot-prompt-checklist.md
+    │       ├── shot-grammar.md
+    │       ├── camera-angle-bible.md
+    │       ├── special-camera-moves.md
+    │       ├── weather-bible.md
+    │       ├── sound-effects-bible.md
+    │       └── music-bible.md
+    └── physics-continuity-engine/
         ├── SKILL.md
         └── references/
-            └── shot-prompt-checklist.md
+            └── object-continuity-log.md
 ```
 
 ## Keeping platform notes current

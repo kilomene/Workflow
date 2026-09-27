@@ -32,9 +32,11 @@ contributions are lightweight — mostly markdown edits, not code.
 - Match the existing tone: direct, and honest about what the workflow can and can't
   guarantee. Avoid language that overpromises technical certainty these skills don't
   have.
-- Keep the two skills' responsibilities separate: `character-consistency` owns
-  identity/continuity/personality; `cinematic-effect-engine` owns visual/audio
-  production quality. Don't let a PR blur that boundary.
+- Keep each skill's responsibilities separate: `character-consistency` owns
+  character identity/voice/personality/emotion; `cinematic-effect-engine` owns
+  visual/audio production quality (camera, lighting, weather, SFX, music);
+  `physics-continuity-engine` owns the physical world (vehicles, buildings,
+  objects, movement physics). Don't let a PR blur these boundaries.
 
 ## Testing a change
 
