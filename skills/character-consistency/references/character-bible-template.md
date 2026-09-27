@@ -15,18 +15,34 @@ Fill in one section per character. Copy this block for each additional character
 - Reference images (file names/paths):
 
 ### Voice
-- Pitch:
-- Pace:
-- Accent/region:
-- Tone quality:
-- Verbal tics/catchphrases:
+(Full template: `voice-bible.md`)
+- Voice ID:
+- Age sound (young/adult/elderly):
+- Gender presentation:
+- Accent:
+- Pitch (low/medium/high):
+- Tone:
+- Speech rhythm:
+- Emotional baseline:
+- Signature speaking habits:
 - Voice sample file (if using cloning tool):
 
 ### Personality & Speech
-- Core traits (3-5):
-- Sentence style (short/long, formal/casual):
-- Vocabulary level:
-- Emotional baseline:
+(Full template: `personality-bible.md`)
+- Core personality:
+- Temperament:
+- Moral compass:
+- Greatest strength:
+- Greatest flaw:
+- Biggest fear:
+- Motivation:
+- Communication style:
+- Sense of humor:
+- Leadership style:
+- Emotional trigger:
+- Stress behavior:
+- Signature habit:
+- Catchphrase (optional):
 
 ### Wardrobe Default
 - Default outfit(s):
