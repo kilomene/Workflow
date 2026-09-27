@@ -17,18 +17,32 @@ editing this file.
 - Reference images: `maren_front.jpg`, `maren_side.jpg`, `maren_3quarter.jpg`
 
 ### Voice
+- Voice ID: MAREN-01
+- Age sound: Adult
+- Gender presentation: Female
+- Accent: Slight Midwestern US
 - Pitch: Medium-low
-- Pace: Measured, deliberate — rarely rushes her words
-- Accent/region: Slight Midwestern US accent
-- Tone quality: Warm but slightly raspy
-- Verbal tics/catchphrases: Says "right, okay" when processing a decision out loud
+- Tone: Warm but slightly raspy, controlled
+- Speech rhythm: Measured, deliberate — rarely rushes her words; clipped and fast only under acute stress
+- Emotional baseline: Controlled — rarely raises her voice even when angry; anger shows as going quieter, not louder
+- Signature speaking habits: Says "right, okay" when processing a decision out loud
 - Voice sample file: `maren_voice_sample.wav` (used with external voice-cloning tool)
 
 ### Personality & Speech
-- Core traits: Guarded, resourceful, dryly funny under pressure, protective of her crew, distrustful of authority
-- Sentence style: Short, clipped sentences under stress; slightly longer and warmer in calm scenes
-- Vocabulary level: Plainspoken, no jargon unless discussing her engineering background
-- Emotional baseline: Controlled — rarely raises her voice even when angry; anger shows as going quieter, not louder
+- Core personality: Guarded, resourceful, dryly funny under pressure, protective of her crew, distrustful of authority
+- Temperament: Even-keeled on the surface, slow to trust
+- Moral compass: Protects her crew above rules or orders; won't sacrifice one of her own for a mission
+- Greatest strength: Resourcefulness under pressure
+- Greatest flaw: Distrust of authority that sometimes costs her useful alliances
+- Biggest fear: Losing someone under her command through her own bad call
+- Motivation: Keep her crew alive and out from under anyone else's control
+- Communication style: Short, clipped sentences under stress; slightly longer and warmer in calm scenes; plainspoken, no jargon unless discussing her engineering background
+- Sense of humor: Dry, understated, timed for tension release
+- Leadership style: Leads by example, not by giving speeches
+- Emotional trigger: Being given orders that risk her crew without explanation
+- Stress behavior: Goes quieter and more clipped, not louder
+- Signature habit: Taps two fingers on whatever surface is near her when thinking
+- Catchphrase: "Right, okay."
 
 ### Wardrobe Default
 - Default outfit: Faded green field jacket, dark grey henley, canvas pants, scuffed boots
